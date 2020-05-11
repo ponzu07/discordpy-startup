@@ -6,7 +6,7 @@ from datetime import datetime, timedelta
 
 bot = commands.Bot(command_prefix='!')
 token = os.environ['DISCORD_BOT_TOKEN']
-
+client = discord.Client()
 
 @bot.event
 async def on_command_error(ctx, error):
@@ -15,7 +15,7 @@ async def on_command_error(ctx, error):
     await ctx.send(error_msg)
 
     
-@bot.event
+@client.event
 async def on_voice_state_update(member, before, after): 
     if member.guild.id == 544882228677705738 and (before.channel != after.channel):
         now = datetime.utcnow() + timedelta(hours=9)
@@ -26,7 +26,8 @@ async def on_voice_state_update(member, before, after):
         elif after.channel is None: 
             msg = f'{now:%m/%d-%H:%M} に {member.name} が {before.channel.name} から退出しました。'
             await alert_channel.send(msg)
-
+            
+            
 @bot.command()
 async def ping(ctx):
     await ctx.send('じるこ')
