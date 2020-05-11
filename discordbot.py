@@ -1,6 +1,7 @@
 from discord.ext import commands
 import os
 import traceback
+import discord
 from datetime import datetime, timedelta
 
 bot = commands.Bot(command_prefix='!')
