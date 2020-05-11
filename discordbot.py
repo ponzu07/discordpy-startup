@@ -14,7 +14,7 @@ async def on_command_error(ctx, error):
     await ctx.send(error_msg)
 
     
-@client.event
+@bot.event
 async def on_voice_state_update(member, before, after): 
     if member.guild.id == 監視するサーバーid and (before.channel != after.channel):
         now = datetime.utcnow() + timedelta(hours=9)
