@@ -16,7 +16,7 @@ async def on_command_error(ctx, error):
     
 @bot.event
 async def on_voice_state_update(member, before, after): 
-    if member.guild.id == 544882228677705738 and (before.channel != after.channel):
+    if member.guild.id == 544882228677705742 and (before.channel != after.channel):
         now = datetime.utcnow() + timedelta(hours=9)
         alert_channel = client.get_channel(709227262251106344)
         if before.channel is None: 
